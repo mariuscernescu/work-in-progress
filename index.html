@@ -28,8 +28,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #f0f0f0;
-            /* Optional: background color for the page */
+            background-color: #000;
+            /* Changed to black */
         }
 
         .image-wrapper {
@@ -38,6 +38,7 @@
             /* Shrink to fit image */
             max-width: 100%;
             max-height: 100vh;
+            /* Removed container-type to prevent collapse */
         }
 
         img {
@@ -58,8 +59,8 @@
             flex-direction: column;
             align-items: flex-start;
             /* Align text to left or center */
-            width: 120px;
-            /* Adjust based on screen size */
+            width: 8%;
+            /* Relative to image wrapper width */
             pointer-events: none;
         }
 
@@ -67,7 +68,8 @@
             color: #66ffff;
             /* Cyan color from image */
             font-family: sans-serif;
-            font-size: 14px;
+            font-size: 1.5vmin;
+            /* Responsive font size based on viewport */
             font-weight: normal;
             margin-bottom: 2px;
             letter-spacing: 1px;
@@ -76,11 +78,10 @@
 
         .progress-bar-container {
             width: 100%;
-            height: 18px;
-            /* Increased thickness */
+            height: 2vmin;
+            /* Responsive height */
             border: 1px solid #66ffff;
             padding: 2px;
-            /* Slightly more padding for the thicker look */
             box-sizing: border-box;
             box-shadow: 0 0 2px rgba(100, 255, 255, 0.5);
         }
