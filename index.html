@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading...</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+            /* Assuming dark background fits the image, or just neutral */
+            font-family: 'Inter', sans-serif;
+            /* Modern font */
+            overflow: hidden;
+        }
+
+        .container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+            /* Optional: background color for the page */
+        }
+
+        .image-wrapper {
+            position: relative;
+            display: inline-block;
+            /* Shrink to fit image */
+            max-width: 100%;
+            max-height: 100vh;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            max-height: 100vh;
+            height: auto;
+            width: auto;
+        }
+
+        .loading-container {
+            position: absolute;
+            z-index: 10;
+            top: 34%;
+            left: 79%;
+            transform: translate(-50%, -50%) rotate(-1deg);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            /* Align text to left or center */
+            width: 120px;
+            /* Adjust based on screen size */
+            pointer-events: none;
+        }
+
+        .loading-label {
+            color: #66ffff;
+            /* Cyan color from image */
+            font-family: sans-serif;
+            font-size: 14px;
+            font-weight: normal;
+            margin-bottom: 2px;
+            letter-spacing: 1px;
+            text-shadow: 0 0 2px rgba(100, 255, 255, 0.5);
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            height: 18px;
+            /* Increased thickness */
+            border: 1px solid #66ffff;
+            padding: 2px;
+            /* Slightly more padding for the thicker look */
+            box-sizing: border-box;
+            box-shadow: 0 0 2px rgba(100, 255, 255, 0.5);
+        }
+
+        .progress-bar {
+            height: 100%;
+            background-color: #66ffff;
+            width: 10%;
+            /* Initial width */
+            box-shadow: 0 0 4px rgba(100, 255, 255, 0.8);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="image-wrapper">
+            <img src="Gemini_Generated_Image_eguo1seguo1seguo.png" alt="Drone Image">
+            <div class="loading-container">
+                <div class="loading-label">LOADING....</div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const progressBar = document.getElementById('progressBar');
+        let percentage = 10;
+        const maxPercentage = 99; // Go a bit higher for the bar
+        const minPercentage = 1;
+        const speed = 180; // Faster animation
+
+        function updateLoading() {
+            if (progressBar) {
+                progressBar.style.width = `${percentage}%`;
+            }
+
+            percentage++;
+
+            if (percentage > maxPercentage) {
+                percentage = minPercentage;
+            }
+        }
+
+        setInterval(updateLoading, speed);
+    </script>
+
+</body>
+
+</html>
